@@ -13,6 +13,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function () {
+    // return $renderer->render('<p>Example Text</p>');
+    //return $router->app->version();
+
+    $renderer = (new \HtmlToProseMirror\Renderer);
+	return $renderer->render(request()->data);
 });
