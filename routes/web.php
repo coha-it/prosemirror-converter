@@ -18,5 +18,5 @@ $router->get('/', function () {
     //return $router->app->version();
 
     $renderer = (new \HtmlToProseMirror\Renderer);
-	return $renderer->render(request()->data);
+	return $renderer->render(request()->data ?? '<span></span>');
 });
