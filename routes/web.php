@@ -13,10 +13,5 @@
 |
 */
 
-$router->get('/', function () {
-    // return $renderer->render('<p>Example Text</p>');
-    //return $router->app->version();
-
-    $renderer = (new \HtmlToProseMirror\Renderer);
-	return $renderer->render(request()->data ?? '<span></span>');
-});
+$router->get('/', 'ConvertCtrl@httpRequest');
+$router->post('/', 'ConvertCtrl@httpRequest');
