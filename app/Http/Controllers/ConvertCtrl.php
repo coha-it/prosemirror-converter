@@ -2,11 +2,35 @@
 
 namespace App\Http\Controllers;
 
-// class CustomBold extends \HtmlToProseMirror\Nodes\Node
-// {
-//     protected $markType = 'strong';
-//     protected $tagName = 'strong';
-// }
+class CustomBold extends \HtmlToProseMirror\Marks\Bold
+{
+    public function data()
+    {
+        return [
+            'type' => 'strong',
+        ];
+    }
+}
+
+class CustomItalic extends \HtmlToProseMirror\Marks\Italic
+{
+    public function data()
+    {
+        return [
+            'type' => 'em',
+        ];
+    }
+}
+
+class CustomStrike extends \HtmlToProseMirror\Marks\Strike
+{
+    public function data()
+    {
+        return [
+            'type' => 'strikethrough',
+        ];
+    }
+}
 
 class ConvertCtrl extends Controller
 {
@@ -48,19 +72,18 @@ class ConvertCtrl extends Controller
 
         $renderer->withMarks([
             // \HtmlToProseMirror\Marks\Bold::class,
+            CustomBold::class,
             \HtmlToProseMirror\Marks\Code::class,
-            \HtmlToProseMirror\Marks\Italic::class,
+            // \HtmlToProseMirror\Marks\Italic::class,
+            CustomItalic::class,
             \HtmlToProseMirror\Marks\Link::class,
-            \HtmlToProseMirror\Marks\Strike::class,
+            // \HtmlToProseMirror\Marks\Strike::class,
+            CustomStrike::class,
             \HtmlToProseMirror\Marks\Subscript::class,
             \HtmlToProseMirror\Marks\Superscript::class,
             \HtmlToProseMirror\Marks\Underline::class,
         ]);
 
-        // $renderer->replaceMark(
-        //     Bold::class,
-        //     \CustomBold::class
-        // );
 
         return $renderer->render(request()->data ?? '<span></span>');
     }
