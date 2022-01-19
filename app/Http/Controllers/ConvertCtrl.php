@@ -59,7 +59,7 @@ class ConvertCtrl extends Controller
             \HtmlToProseMirror\Nodes\CodeBlock::class,
             \HtmlToProseMirror\Nodes\HardBreak::class,
             \HtmlToProseMirror\Nodes\Heading::class,
-            // \HtmlToProseMirror\Nodes\Image::class,
+            \HtmlToProseMirror\Nodes\Image::class,
             \HtmlToProseMirror\Nodes\ListItem::class,
             \HtmlToProseMirror\Nodes\OrderedList::class,
             \HtmlToProseMirror\Nodes\Paragraph::class,
